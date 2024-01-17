@@ -1,0 +1,23 @@
+<div class="center-container">
+  <div class="container">
+    <h2 class="welcome-text">Welcome</h2>
+    <form (ngSubmit)="onSubmit()">
+      <label for="name" class="input-label">Name:</label>
+      <input type="text" id="name" [(ngModel)]="formData.name" name="name" class="input-field" required>
+
+      <label for="email" class="input-label">Email:</label>
+      <input type="email" id="email" [(ngModel)]="formData.email" name="email" class="input-field" required>
+
+      <label for="phone" class="input-label">Phone Number:</label>
+      <input type="tel" id="phone" [(ngModel)]="formData.phone" name="phone" class="input-field" required>
+
+      <label for="password" class="input-label">Password:</label>
+      <input type="password" id="password" [(ngModel)]="formData.password" name="password" class="input-field" required>
+
+      <button type="submit" class="login-button">Sign Up</button>
+
+      <p class="terms-text">By signing up, you accept the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+    </form>
+    <p class="signup-text">Already have an account? <a routerLink="/login">Log in</a></p>
+  </div>
+</div>
