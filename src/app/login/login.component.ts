@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/data.service';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,11 @@ import { DataService } from 'src/app/data.service';
 export class LoginComponent {
   formData: { email: string; password: string } = { email: '', password: '' };
 
-  constructor(private router: Router, private httpClient: HttpClient, private dataService: DataService) {}
+  constructor(
+    private router: Router,
+    private dataService: DataService,
+    private authService: AuthenticationService
+  ) {}
 
   onSubmit() {
     console.log('Login submitted:', this.formData);
@@ -24,6 +28,11 @@ export class LoginComponent {
 
       if (foundAccount) {
         console.log('Login successful:', foundAccount);
+        
+        // Use AuthenticationService methods for handling login
+        this.authService.setLoggedInUser(foundAccount);
+        this.authService.login(foundAccount.email, foundAccount.password);
+
         // Redirect to the dashboard if the account is found
         this.router.navigate(['/dashboard']);
       } else {

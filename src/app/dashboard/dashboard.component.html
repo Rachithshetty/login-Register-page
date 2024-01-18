@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Dashboard</h2>
-  <p>Welcome, {{ username }}!</p>
+  <p>Welcome, {{ getLoggedInUserName() }}!</p>
 
     <div class="card-container">
     <div *ngFor="let account of accounts" class="card">
