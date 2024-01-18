@@ -1,5 +1,12 @@
 <div class="container">
   <h2>Dashboard</h2>
   <p>Welcome, {{ username }}!</p>
-  <!-- Add data display or other dashboard content here -->
+
+    <div class="card-container">
+    <div *ngFor="let account of accounts" class="card">
+      <h3>{{ account.name }}</h3>
+      <p>Email: {{ account.email }}</p>
+      <p>Phone: {{ account.phone }}</p>
+    </div>
+  </div>
 </div>
